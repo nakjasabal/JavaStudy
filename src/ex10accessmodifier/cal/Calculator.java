@@ -1,5 +1,9 @@
 package ex10accessmodifier.cal;
 
+/*
+해당 클래스는 파일명과 동일하고, 외부에서 접근해야 하는 용도이므로 
+public으로 선언한다. 즉 해당 java파일의 대표클래스라 할수있다. 
+*/
 public class Calculator {
 
 	//멤버변수
