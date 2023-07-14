@@ -21,6 +21,15 @@ public class QuValidateId {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("아이디를 입력하세요:");
 		String id = scanner.nextLine();		
+		
+		/* 만약 String을 Javascript처럼 배열처럼 만들고 싶다면
+		toCharArray() 메서드를 사용하면 된다. 해당 메서드는 String
+		을 char타입의 배열로 변환해준다. */
+		char[] charArr = id.toCharArray();
+		for(int i=0 ; i<charArr.length ; i++) {
+			System.out.print(charArr[i]+"-");
+		}
+		
 		//아이디를 인수로 전달한 후 사용여부에 따라 boolean값을 반환받는다.
 		boolean isOk = idValidate(id);
 		if(isOk==true)

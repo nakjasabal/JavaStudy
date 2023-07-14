@@ -33,16 +33,6 @@ public class QuArray1To10 {
 			sum += e;
 		}
 		System.out.println("\n배열전체 원소의 합:"+ sum);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 	}
 
 }
