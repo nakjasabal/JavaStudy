@@ -8,6 +8,7 @@ public class Ex02PreDefineException2 {
  
 		System.out.println("### NumberFormatException ###");
 		Scanner sc = new Scanner(System.in);
+		
 		try {
 			/* 입력시 정수가 아닌 문자 혹은 문자열을 입력하면 
 			정수로 변환이 불가능하므로 예외가 발생된다. */
