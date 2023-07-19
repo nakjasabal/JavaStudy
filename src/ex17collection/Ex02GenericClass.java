@@ -1,7 +1,5 @@
 package ex17collection;
 
-//2.검은색 화면에서 작성..
-
 class Apple{
 	int weight;
 	public Apple(int w) {
