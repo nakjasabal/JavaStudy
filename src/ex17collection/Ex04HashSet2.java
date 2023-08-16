@@ -23,7 +23,7 @@ public class Ex04HashSet2 {
 		System.out.println("hashSet의크기:"+ hashSet.size());
 	 
 		//4번째 Teacher인스턴스를 생성한다. t1과 동일한 형태이다.
-		Teacher t3Same = new Teacher("이정재", 40, "국어");
+		Teacher t3Same = new Teacher("최민식", 44, "수학");
 		/*
 		Teacher클래스에 오버라이딩을 하지 않으면 동일한 객체인지
 		판단할 수 없어 정상적으로 입력된다.  
