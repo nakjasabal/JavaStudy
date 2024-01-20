@@ -42,8 +42,9 @@ public class Teacher extends Person
 		 	인 hash()를 사용해도된다. 멤버변수의 갯수만큼 인수로
 		 	전달하면 위와 동일하게 고유한 주소값을 정수형으로 반환
 		 	해준다. */
-		int returnCode2 = Objects.hash(super.getAge(), 
-				this.subject);
+//		int returnCode2 = Objects.hash(super.getAge(), 
+//				this.subject);
+		int returnCode2 = Objects.hash(super.getName(), super.getAge());
 		System.out.println("returnCode2="+ returnCode2);
 		
 		//1, 2 둘다 사용할 수 있다. 
@@ -60,8 +61,10 @@ public class Teacher extends Person
 		/* age는 int형이므로 비교연산자를 통해 비교한다. 
 		subject는 String이므로 equals() 메서드를 통해 비교해야
 		한다. */
-		if( (teacher.getAge()==super.getAge()) 
-				&& teacher.subject.equals(this.subject) ) {
+		/* (teacher.getAge()==super.getAge()) 
+				&& teacher.subject.equals(this.subject) */
+		if(teacher.getName().equals(this.getName()) &&
+				teacher.getAge()==super.getAge() ) {
 			/* 모든 내용이 일치하면 true를 반환한다. 그러면 set컬렉션
 			에는 add(추가)되지 않는다. */
 			return true;
