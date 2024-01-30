@@ -1,4 +1,4 @@
-package ex17collection02;
+package ex17collection;
 
 import java.util.Date;
 import java.util.HashSet;
