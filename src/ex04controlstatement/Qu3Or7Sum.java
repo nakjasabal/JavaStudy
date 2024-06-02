@@ -10,6 +10,8 @@ package ex04controlstatement;
 public class Qu3Or7Sum {
 
 	public static void main(String[] args) {
+		
+		//while문
 		int sum = 0;
 		//100번반복
 		int i=1;
@@ -29,6 +31,36 @@ public class Qu3Or7Sum {
 			i++;
 		}
 		//정답도 출력한다. 
-		System.out.print("="+ sum);
+		System.out.println("="+ sum);
+		
+		//do~while문
+		sum = 0;
+		i=1;
+		do {
+			if(i%3==0 || i%7==0) {
+				if(i%(3*7)!=0) {
+					sum += i;
+					System.out.print(i);
+					if(i<99) System.out.print("+");
+				}
+			}
+			i++;			
+		}		
+		while(i<=100);
+		System.out.println("="+ sum);
+		
+		//for문
+		sum = 0;
+		for(int x=1 ; x<=100 ; x++) {
+			if(x%3==0 || x%7==0) {
+				if(x%(3*7)!=0) {
+					sum += x;
+					System.out.print(x);
+					if(x<99) System.out.print("+");
+				}
+			}
+		}
+		System.out.println("="+ sum);	
+		
 	}
 }
