@@ -21,3 +21,4 @@ public class HighFriend extends Friend {
 		System.out.println(", 전번:"+ phone);
 	}
 }
+

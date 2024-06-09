@@ -9,14 +9,12 @@ public class UnivFriend extends Friend	{
 		super(name, phone, addr);
 		this.major = major;
 	}
-	
 	@Override
 	public void showAllData() {
 		System.out.println("==대딩친구(전체정보)==");
 		super.showAllData();
 		System.out.println(", 전공:"+ major);
 	}
-	
 	@Override
 	public void showBasicInfo() {
 		System.out.println("==대딩친구==");

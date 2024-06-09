@@ -45,7 +45,7 @@ class Computer{
 휴대 이용을 위해 배터리 멤버변수가 추가되었다. */
 class NotebookComputer extends Computer {
 	//자식 클래스에서 확장한 멤버변수 
-	int battary;  
+	int battery;  
 	
 	//생성자 메서드 정의 
 	public NotebookComputer(String name, int initCharge) {
@@ -54,16 +54,16 @@ class NotebookComputer extends Computer {
 		발생한다. 항상 부모의 생성자를 최우선으로 호출해야한다. */
 		super(name);
 		//멤버변수 초기화 
-		battary = initCharge;
+		battery = initCharge;
 	}
 	//배터리 충전을 표현한 멤버메서드
 	public void charging() {
-		battary += 5;
+		battery += 5;
 	}
 	//휴대하면서 컴퓨터를 사용하는것을 표현한 메서드 
-	public void movigCal() {
+	public void movingCal() {
 		//사용전 배터리를 확인한 후 사용여부를 판단한다. 
-		if(battary < 1) {
+		if(battery < 1) {
 			System.out.println("배터리가 방전되어 사용불가");
 			/* 메서드에서 아래와 같이 return을 만나서 실행이
 			중지된다. */
@@ -79,7 +79,7 @@ class NotebookComputer extends Computer {
 		calculateFunc();
 		
 		//배터리를 1 차감한다. 
-		battary -= 1;  
+		battery -= 1;  
 	}
 }
 /* 테블릿 노트북 : 컴퓨터의 기본 연산기능과, 휴대이용 그리고 전용
@@ -98,7 +98,7 @@ class TabletNotebook extends NotebookComputer{
 	//테블릿 사용을 위해 배터리량 체크 및 등록된 펜인지 확인
 	public void write(String penInfo) {
 		//배터리가 충분한지 확인 
-		if(battary<1) {
+		if(battery<1) {
 			System.out.println("배터리가 방전되어 사용불가");
 			return;
 		}
@@ -118,9 +118,9 @@ class TabletNotebook extends NotebookComputer{
 		기능처럼 사용할 수 있다. 단 접근이 가능한 지정자로 선언
 		되어야한다. super는 생략할 수 있다. 
 		 */
-		super.movigCal();
+		super.movingCal();
 		System.out.println("스크린에 펜으로 그림을 그린다.");
-		battary -= 1;
+		battery -= 1;
 	}
 }
 
@@ -135,14 +135,14 @@ public class E04ISAInheritance {
 				new TabletNotebook("이동욱", 5, "ISE-1234");
 
 		System.out.println("==노트북컴퓨터사용==");	
-		noteBook.movigCal();
-		noteBook.movigCal();
-		noteBook.movigCal();
-		noteBook.movigCal();
-		noteBook.movigCal();//배터리가 1씩 차감되므로 여기까지 사용가능	
-		noteBook.movigCal();//배터리가 모두 소모되어 사용불가
-		noteBook.movigCal();
-		noteBook.movigCal();
+		noteBook.movingCal();
+		noteBook.movingCal();
+		noteBook.movingCal();
+		noteBook.movingCal();
+		noteBook.movingCal();//배터리가 1씩 차감되므로 여기까지 사용가능	
+		noteBook.movingCal();//배터리가 모두 소모되어 사용불가
+		noteBook.movingCal();
+		noteBook.movingCal();
 
 		System.out.println("==ISE-1234 펜으로 테블릿사용==");
 		tablet.write("ISE-1234"); //사용가능

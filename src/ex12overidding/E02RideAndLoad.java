@@ -47,7 +47,7 @@ class C extends B {
 	모두 가려지게되므로 C클래스에 정의된 메서드 하나만 남게된다. 
 	오버로딩 된 메서드는 서로 다르므로 3개 모두 존재한다.  */
 }
-public class E07RideAndLoad {
+public class E02RideAndLoad {
 
 	public static void main(String[] args) {
 

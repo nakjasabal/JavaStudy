@@ -1,9 +1,8 @@
-package ex12inheritance;
+package ex12inheritance.noco;
 
 public class AnimalMain {
 	
 	public static void main(String[] args) {
-		//강아지 객체생성
 		Dog dog = 
 				new Dog("포유류",2,"수컷","포매라니안","뽀미");
 		

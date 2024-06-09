@@ -17,7 +17,7 @@ package ex12inheritance;
 	인자생성자
 		: 부모클래스까지 초기화할수 있도록 구성할것
  */
-public class AnimalDog extends Animal {
+public class Dog extends Animal {
 	 
 	//확장한 멤버변수
 	String dogKind; //강아지 종류
@@ -42,7 +42,7 @@ public class AnimalDog extends Animal {
 		System.out.println("이름은:"+ name);
 	}
 	//생성자 메소드
-	public AnimalDog(String species, int age, String gender, 
+	public Dog(String species, int age, String gender, 
 			String dogKind, String name) {
 		/*
 		자식 클래스에서는 반드시 부모클래스의 객체를 먼저 생성해야 한다. 

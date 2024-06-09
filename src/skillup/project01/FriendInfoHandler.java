@@ -2,8 +2,6 @@ package skillup.project01;
 
 import java.util.Scanner;
 
-/* 해당 프로그램에서 기능을 담당하는 클래스로 핸들러 혹은 메니져
-클래스라고 부른다. */
 public class FriendInfoHandler {	
 	 
 	private HighFriend[] highFriends;	
@@ -52,7 +50,6 @@ public class FriendInfoHandler {
 		System.out.println("##전체정보가 출력되었습니다##");
 	}
 	
-	//저장된 연락처 간략정보 출력
 	public void showSimpleData() {
 		//System.out.println("## showSimpleData 호출됨 ##");
 		//고딩친구반복
@@ -66,7 +63,7 @@ public class FriendInfoHandler {
 
 		System.out.println("##간략정보가 출력되었습니다##");
 	}
-	//연락처 정보 검색
+
 	public void searchInfo() {
 		//System.out.println("searchInfo 호출됨");
 		boolean isFind = false;		
@@ -95,7 +92,7 @@ public class FriendInfoHandler {
 		if(isFind==false)
 			System.out.println("##찾는 정보가 없습니다.##");
 	}
-	//연락처 정보 삭제
+
 	public void deleteInfo() {
 		//System.out.println("## deleteInfo 호출됨 ##");
 		Scanner scan = new Scanner(System.in);
@@ -144,3 +141,9 @@ public class FriendInfoHandler {
 		}
 	}
 }
+
+
+
+
+
+

@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 //메인클래스
 public class MyFriendInfoBook {
-	/* 메뉴를 출력하는 용도의 메서드로 매개변수, 반환타입이 없는
-	형태로 정의한다. main메서드에서 직접 호출하기 위해 static으로
-	선언되어있다. */
 	public static void menuShow() {
 		System.out.println("######## 메뉴를 입력하세요(ver03) ########");
 		System.out.print("1.고딩친구입력 ");

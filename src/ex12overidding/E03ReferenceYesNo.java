@@ -18,7 +18,7 @@ class MyC extends MyB {
 	} 
 }
 
-public class E08ReferenceYesNo {
+public class E03ReferenceYesNo {
 
 	public static void main(String[] args) {
 

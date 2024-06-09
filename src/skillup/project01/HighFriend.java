@@ -27,3 +27,4 @@ public class HighFriend  {
 		System.out.println(", 전번:"+ phone);
 	}
 }
+

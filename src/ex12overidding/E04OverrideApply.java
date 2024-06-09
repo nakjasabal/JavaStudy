@@ -1,6 +1,6 @@
 package ex12overidding;
 
-public class E09OverrideApply {
+public class E04OverrideApply {
 
 	public static void main(String[] args) {
 		

@@ -18,14 +18,14 @@ package ex12overidding;
 2.이것을 동질화(Homogeneous : 호모지니어스)라고 표현한다. 
  */
 //부모클래스 
-class Parent {
+class MyParent {
 	int parentMember;
 	void parentMethod() {
 		System.out.println("부모의메소드:parentMethod()");
 	}
 }
 //자식클래스 
-class Child extends Parent{
+class MyChild extends MyParent{
 	//자식에서 확장한 멤버 
 	int childMember;
 	void childMethod() {
@@ -46,25 +46,24 @@ class Child extends Parent{
 	}
 }
 
-public class E11Polymorphism {
+public class E06Polymorphism {
 
 	public static void main(String[] args) {
 		
 		//동질화 : 참조변수와 인스턴스의 타입이 동일하다. 
-		Child homeChild = new Child();
+		MyChild myChild = new MyChild();
 		//동질화의 경우 인스턴스 전체를 접근할 수 있다. 
-		homeChild.childMember = 10;
-		homeChild.parentMember = 100;
-		homeChild.childMethod(); 
-		homeChild.parentMethod(1000);//오버로딩 한 메서드 
-		homeChild.parentMethod();//오버라이딩 한 메서드
+		myChild.childMember = 10;
+		myChild.parentMember = 100;
+		myChild.childMethod(); 
+		myChild.parentMethod(1000);//오버로딩 한 메서드 
+		myChild.parentMethod();//오버라이딩 한 메서드
 		
 		/* 이질화 : 부모타입의 변수로 자식인스턴스를 참조하는것을
 		말한다. 이 경우 자식 클래스에서 새롭게 정의한 멤버는 접근
 		할수없다. 만약 접근해야 한다면 자식타입으로 강제형변환(다운
 		캐스팅)해야 한다. */
-		System.out.println("[부모타입에 자식타입의 메모리 주소 복사]");
-		Parent parent1 = homeChild;
+		MyParent parent1 = myChild;
 		parent1.parentMember = 1;
 		//부모타입으로 자식인스턴스에 접근할 수 없으므로 에러발생
 		//parent1.childMember = 1;
@@ -72,21 +71,21 @@ public class E11Polymorphism {
 		parent1.parentMethod();
 	 
 		//부모 참조변수로 자식 인스턴스를 참조한 두번째 변수 생성
-		Parent parent2 = new Child();
-		parent2.parentMember=1;
-		parent2.parentMethod();
+		MyParent myParent = new MyChild();
+		myParent.parentMember=1;
+		myParent.parentMethod();
 		/* 부모 참조변수로 접근하려면 강제형변환 해야한다. 하지만
 		아래와 같이 기술하면 에러가 발생한다. 
-		(Child)parent2.childMember
-		소괄호를 하나 더 추가해서 parent2를 자식타입으로 형변환
+		(Child)myParent.childMember
+		소괄호를 하나 더 추가해서 myParent를 자식타입으로 형변환
 		후 멤버변수에 접근해야 한다. */
-		((Child)parent2).childMember = 1;
-		((Child)parent2).childMethod();
-		((Child)parent2).parentMethod();
+		((MyChild)myParent).childMember = 1;
+		((MyChild)myParent).childMethod();
+		((MyChild)myParent).parentMethod();
 		
 		/* 자식타입으로 형변화 이후에 해당 참조변수를 통해 자식
 		멤버에 접근한다. 위와 동일한 방법이다. */
-		Child child2 = (Child)parent2;
+		MyChild child2 = (MyChild)myParent;
 		child2.childMember = 1;
 		child2.childMethod();
 		child2.parentMethod(1);
@@ -95,8 +94,8 @@ public class E11Polymorphism {
 		한다. 따라서 모든 인스턴스는 Object의 참조변수로 참조가
 		가능하다. 또한 Object클래스에 정의된 모든 메서드를 별도의
 		선언없이 사용할 수 있고, 필요하다면 오버라이딩도 할수있다.*/
-		Object object = new Child();
-		((Parent)object).parentMethod();
+		Object object = new MyChild();
+		((MyParent)object).parentMethod();
 	}
 }
 

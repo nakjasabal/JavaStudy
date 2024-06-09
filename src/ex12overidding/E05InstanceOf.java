@@ -1,4 +1,4 @@
-package ex12inheritance;
+package ex12overidding;
 /*
 instanceof 연산자
 : 인스턴스 변수가 어떤 타입의 변수인지를 판단하는 연산자로
@@ -25,7 +25,7 @@ class GoldPaperBox extends PaperBox {
 		System.out.println("GoldPaperBox로 포장합니다");
 	}
 }
-public class E06InstanceOf {
+public class E05InstanceOf {
 	
 	/*
 	-메서드 정의시 부모타입의 매개변수로 설정하면 자식타입의 인스턴스를

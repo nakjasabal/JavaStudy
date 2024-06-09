@@ -17,3 +17,4 @@ public class Friend {
 		System.out.print(", 주소:"+ addr);
 	}
 }
+

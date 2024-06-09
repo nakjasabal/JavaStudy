@@ -42,7 +42,7 @@ class BaseSpeaker extends Speaker {
 	}
 }
 
-public class E06Overriding {
+public class E01Overriding {
 	
 	public static void main(String[] args) {
 		

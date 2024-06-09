@@ -1,6 +1,5 @@
 package skillup.project02;
 
-//대학교 친구 정보를 저장하기 위한 클래스 
 public class UnivFriend extends Friend	{
 	String major;  
 
