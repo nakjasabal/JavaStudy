@@ -8,7 +8,7 @@ public class MyFriendInfoBook {
 	형태로 정의한다. main메서드에서 직접 호출하기 위해 static으로
 	선언되어있다. */
 	public static void menuShow() {
-		System.out.println("######## 메뉴를 입력하세요(ver05) ########");
+		System.out.println("######## 메뉴를 입력하세요(ver06) ########");
 		System.out.print("1.고딩친구입력 ");
 		System.out.println("2.대딩친구입력");
 		System.out.print("3.전체정보출력 ");
@@ -31,8 +31,11 @@ public class MyFriendInfoBook {
 		//사용자 입력을 위한 인스턴스 생성 
 		Scanner scan = new Scanner(System.in);
 		//기능을 담당하는 핸들러 클래스의 인스턴스 생성
-		FriendInfoHandler handler = 
-				new FriendInfoHandler(100);
+		FriendInfoHandler handler = new FriendInfoHandler(100);
+		
+		/* 프로그램 시작시 직렬화된 파일이 있다면 즉시 복원하여 컬렉션에
+		저장한다.*/ 
+		handler.readFriendInfo();
 
 		/*
 		무한루프 조건으로 사용자가 원할때 종료할수 있는 구조를 만들어준다.
@@ -68,6 +71,12 @@ public class MyFriendInfoBook {
 				break;
 			case 7:
 				System.out.println("프로그램종료");
+				/*
+				프로그램이 종료되는 시점에 컬렉션에 저장된 객체를 
+				파일의 형태로 저장 즉 직렬화해야한다. 
+				핸들러 클래스에 정의된 메서드를 호출한다. 
+				 */
+				handler.saveFriendInfo();				
 				return;
 			}////switch 끝
 		}////while 끝

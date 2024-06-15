@@ -1,5 +1,9 @@
 package skillup.project06;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -84,5 +88,52 @@ public class FriendInfoHandler {
 		else {
 			System.out.println("##삭제되었습니다##");
 		}
+	}
+	//프로그램 종료시 친구의 정보를 직렬화한다. 
+	public void saveFriendInfo() {
+		try {
+			//친구 정보를 파일에 저장하기 위한 출력스트림을 생성한다.
+			ObjectOutputStream out =
+				new ObjectOutputStream(
+					new FileOutputStream("src/skillup/project06/friend_info.obj")
+				);
+			
+			//List<E> 컬렉션에 저장된 친구정보의 갯수만큼 반복하여..
+			for(Friend fr : myFriends) {
+				//파일에 저장한다. 즉 직렬화한다.
+				out.writeObject(fr);
+			}
+		}
+		catch (Exception e) {
+			System.out.println("친구정보 직렬화 중 예외발생");
+		}		
+	}
+
+	//프로그램이 시작되면 저장된 파일을 통해 복원한 후 컬렉션에 추가한다.
+	public void readFriendInfo() {
+		try {
+			//파일을 복원(역직렬화)하기 위해 스트림을 생성한다. 
+			ObjectInputStream in =
+				new ObjectInputStream(
+					new FileInputStream("src/skillup/project06/friend_info.obj")
+				);
+			//파일에 친구의 정보가 몇개 저장되었는지 확인할수 없으므로
+			//무한루프로 구성한다. 
+			while(true) {			
+				//직렬화될때 Object기반으로 저장되므로 역직렬화할때는
+				//반드시 다운캐스팅 해야한다. 
+				Friend fr = (Friend) in.readObject();
+				//List<E> 컬렉션에 추가한다. 
+				myFriends.add(fr);			
+				//만약 더이상 복원할 객체가 없다면 예외가 발생한다. 
+			}
+		}
+		catch (Exception e) {
+			//예외가 발생하면 catch절로 예외객체가 던져지므로 while루프를
+			//탈출할 수 있다. 
+			System.out.println("더 이상 복원할 객체가 없습니다.");
+			e.printStackTrace();
+		}		
+		System.out.println("친구의 정보가 복원되었습니다.");
 	}
 }

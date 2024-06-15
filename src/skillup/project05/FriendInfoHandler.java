@@ -3,6 +3,8 @@ package skillup.project05;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class FriendInfoHandler {	
 	//멤버변수	
@@ -32,16 +34,28 @@ public class FriendInfoHandler {
 	}
 	//저장된 연락처 전체정보 출력
 	public void showAllData() {
-		for(int i=0 ; i<myFriends.size() ; i++) {
-			myFriends.get(i).showAllData();
-		}
+		MyInterface1 myInterface1 = new MyInterface1() {
+			@Override
+			public void showAllData() {
+				for(int i=0 ; i<myFriends.size() ; i++) {
+					myFriends.get(i).showAllData();
+				}				
+			}
+		};
+		myInterface1.showAllData();
 		System.out.println("##전체정보가 출력되었습니다##");
 	}
 	//저장된 연락처 간략정보 출력
-	public void showSimpleData() {
-		for(Friend friend : myFriends) {			
-			friend.showBasicInfo();
-		}
+	public void showSimpleData() {		
+		MyInterface2 myInterface2 = new MyInterface2() {
+			@Override
+			public void showSimpleData() {				
+				for(Friend friend : myFriends) {			
+					friend.showBasicInfo();
+				}
+			}
+		};
+		myInterface2.showSimpleData();
 		System.out.println("##간략정보가 출력되었습니다##");
 	}
 	//연락처 정보 검색
@@ -63,6 +77,28 @@ public class FriendInfoHandler {
 		if(isFind==false)
 			System.out.println("##찾는 정보가 없습니다##");
 	}
+	//연락처 정보 검색
+	public void searchInfoLambda() {
+		Runnable searchFrInfo = () -> {
+			boolean isFind = false;		
+			Scanner scan = new Scanner(System.in);
+			System.out.print("검색할 이름을 입력하세요:");
+			String searchName = scan.nextLine();		
+			
+			Iterator<Friend> itr = myFriends.iterator();
+			while(itr.hasNext()) {
+				Friend friend = itr.next();
+				if(searchName.compareTo(friend.name)==0) {	 
+					friend.showAllData();
+					System.out.println("##귀하가 요청하는 정보를 찾았습니다##");
+					isFind = true; 
+				}
+			}		
+			if(isFind==false)
+				System.out.println("##찾는 정보가 없습니다##");
+		};
+		searchFrInfo.run();
+	}	
 	//연락처 정보 삭제
 	public void deleteInfo() {
 		Scanner scan = new Scanner(System.in);

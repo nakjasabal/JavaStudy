@@ -1,7 +1,5 @@
 package skillup.project01;
 
-import java.util.Scanner;
-
 public class FriendInfoHandler {	
 	 
 	private HighFriend[] highFriends;	
@@ -18,19 +16,19 @@ public class FriendInfoHandler {
  
 	public void addFriend(int choice) {
 		//System.out.println("## addFriend 호출됨 ##");
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 		String iName,iPhone,iAddr,iNickname,iMajor;
-		System.out.print("이름:");iName = scan.nextLine();
-		System.out.print("전화번호:");iPhone = scan.nextLine();
-		System.out.print("주소:");iAddr = scan.nextLine();
+		System.out.print("이름:");iName = MyFriendInfoBook.scan.nextLine();
+		System.out.print("전화번호:");iPhone = MyFriendInfoBook.scan.nextLine();
+		System.out.print("주소:");iAddr = MyFriendInfoBook.scan.nextLine();
 		
 		if(choice==1) {
-			System.out.print("별명:"); iNickname = scan.nextLine(); 
+			System.out.print("별명:"); iNickname = MyFriendInfoBook.scan.nextLine(); 
 			HighFriend high = new HighFriend(iName, iPhone, iAddr, iNickname);
 			highFriends[numOfhighFriend++] = high;
 		}
 		else if(choice==2) {  
-			System.out.print("전공:"); iMajor = scan.nextLine();
+			System.out.print("전공:"); iMajor = MyFriendInfoBook.scan.nextLine();
 			univFriends[numOfunivFriend++] = 
 				new UnivFriend(iName, iPhone, iAddr, iMajor);
 		} 
@@ -67,9 +65,9 @@ public class FriendInfoHandler {
 	public void searchInfo() {
 		//System.out.println("searchInfo 호출됨");
 		boolean isFind = false;		
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 		System.out.print("검색할 이름을 입력하세요:");
-		String searchName = scan.nextLine();		
+		String searchName = MyFriendInfoBook.scan.nextLine();		
 		
 		//고딩친구반복
 		for(int i=0 ; i<numOfhighFriend ; i++) {
@@ -81,7 +79,7 @@ public class FriendInfoHandler {
 		}
 		//대딩친구반복
 		for(int i=0 ; i<numOfunivFriend ; i++) {
-			if(searchName.compareTo(highFriends[i].name)==0) {	 
+			if(searchName.compareTo(univFriends[i].name)==0) {	 
 				univFriends[i].showAllData();
 				System.out.println("##귀하가 요청하는 정보를 찾았습니다.##");
 				isFind = true; 
@@ -95,9 +93,9 @@ public class FriendInfoHandler {
 
 	public void deleteInfo() {
 		//System.out.println("## deleteInfo 호출됨 ##");
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 		System.out.print("삭제할 이름을 입력하세요:");
-		String deleteName = scan.nextLine();
+		String deleteName = MyFriendInfoBook.scan.nextLine();
 		int deleteIndexHigh = -1; 
 		int deleteIndexUniv = -1; 
 		

@@ -31,8 +31,7 @@ public class MyFriendInfoBook {
 		//사용자 입력을 위한 인스턴스 생성 
 		Scanner scan = new Scanner(System.in);
 		//기능을 담당하는 핸들러 클래스의 인스턴스 생성
-		FriendInfoHandler handler = 
-				new FriendInfoHandler(100);
+		FriendInfoHandler handler = new FriendInfoHandler(100);
 
 		/*
 		무한루프 조건으로 사용자가 원할때 종료할수 있는 구조를 만들어준다.
@@ -45,31 +44,37 @@ public class MyFriendInfoBook {
 			//1.메뉴를 출력한다. 
 			menuShow();
 			
-			//2.사용자는 수행할 기능의 메뉴를 선택한다. 
-			int choice = scan.nextInt();
-			
-			//3.선택한 번호에 따라 switch문으로 각 메서드를 
-			//호출한다.
-			switch(choice) {
-			case 1: case 2:
-				handler.addFriend(choice);
-				break;
-			case 3:
-				handler.showAllData();
-				break;
-			case 4:
-				handler.showSimpleData();
-				break;
-			case 5:
-				handler.searchInfo();
-				break;
-			case 6:
-				handler.deleteInfo();
-				break;
-			case 7:
-				System.out.println("프로그램종료");
-				return;
-			}////switch 끝
+			try {
+				//2.사용자는 수행할 기능의 메뉴를 선택한다. 
+				int choice = scan.nextInt();
+								
+				//3.선택한 번호에 따라 switch문으로 각 메서드를 
+				//호출한다.
+				switch(choice) {
+				case 1: case 2:
+					handler.addFriend(choice);
+					break;
+				case 3:
+					handler.showAllData();					
+					break;
+				case 4:
+					handler.showSimpleData();
+					break;
+				case 5:
+					handler.searchInfoLambda();
+					break;
+				case 6:
+					handler.deleteInfo();
+					break;
+				case 7:
+					System.out.println("프로그램종료");
+					return;
+				}////switch 끝
+			}
+			catch (Exception e) {
+				System.out.println("[예외발생]메뉴선택은 숫자만 입력해주세요.");
+				scan.nextLine();
+			}
 		}////while 끝
 	}////main 끝
 }////class 끝

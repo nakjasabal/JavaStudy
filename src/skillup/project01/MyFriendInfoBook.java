@@ -3,6 +3,9 @@ package skillup.project01;
 import java.util.Scanner;
 
 public class MyFriendInfoBook {
+	
+	public static final Scanner scan = new Scanner(System.in);
+	
 	public static void menuShow() {
 		System.out.println("######## 메뉴를 입력하세요(ver01) ########");
 		System.out.print("1.고딩친구입력 ");
@@ -16,12 +19,13 @@ public class MyFriendInfoBook {
 	}
 	
 	public static void main(String[] args) {	
-		Scanner scan = new Scanner(System.in);
+		
 		FriendInfoHandler handler = new FriendInfoHandler(100);
 
 		while(true) {
 			menuShow();			
-			int choice = scan.nextInt();			
+			int choice = scan.nextInt();
+			scan.nextLine();
 			switch(choice) {
 			case 1: case 2:
 				handler.addFriend(choice);
